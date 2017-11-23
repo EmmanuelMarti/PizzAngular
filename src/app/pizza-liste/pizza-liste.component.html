@@ -1,0 +1,7 @@
+<p>
+  pizza-liste works!
+</p>
+
+<ul>
+	<app-one-pizza *ngFor="let pizza of pizzaListe" [pizza]="pizza" (onSelected)="onSelectedContact($event)"></app-one-pizza>
+</ul>

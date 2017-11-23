@@ -7,7 +7,7 @@ export class PizzaServiceService {
 	// mettre l'url de sa machine
 	private url = "http:\/\/pizzatp-manumarti.c9users.io\/pizzas\/";
 
-  	constructor() { }
+  	constructor(public http: HttpClient) { }
 
   	get(){
 	  	return new Promise(resolve =>{
