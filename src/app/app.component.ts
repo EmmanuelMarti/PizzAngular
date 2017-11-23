@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ClarityModule } from "clarity-angular";
 
 @Component({
   selector: 'app-root',
