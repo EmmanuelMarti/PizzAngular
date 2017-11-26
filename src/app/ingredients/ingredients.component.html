@@ -1,0 +1,10 @@
+<p>
+  ingredients works!
+</p>
+
+<ul>
+	<app-one-ingredient *ngFor="let ingredient of dataIngredient" [ingredient]="ingredient" (onSelected)="onSelectedContact($event)">
+	</app-one-ingredient>
+</ul>
+
+<a routerLink="/ingredient/form/0">Ajouter un ingrédient</a>

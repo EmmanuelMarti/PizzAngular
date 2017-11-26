@@ -1,0 +1,17 @@
+pizza-detail works!
+
+<h1>{{ pizza.name }}</h1>
+<div *ngIf="pizza.image"> 
+	<img src="{{pizza.image}}">
+</div>
+<div>
+	<p> Description : {{ pizza.description }} </p>
+	<p> Prix : {{ pizza.price }} </p>
+	Ingredients : 
+	<div *ngFor="let ingredient of pizza.ingredients"> 
+		<span>{{ingredient.name}}, poids : {{ingredient.weight}}, prix : {{ingredient.price}}</span> 
+	</div>
+</div>
+<a routerLink="/pizza/form/{{pizza._id}}">Modifier cette pizza</a>
+
+

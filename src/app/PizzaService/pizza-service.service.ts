@@ -18,7 +18,7 @@ export class PizzaServiceService {
 	  	});
   	}
 
-	getById(id: number){
+	getById(id: string){
 	    return new Promise(resolve =>{
 	      this.http.get(this.url + id)
 	      .subscribe(data => {
@@ -47,6 +47,7 @@ export class PizzaServiceService {
 	 }
 
   	update(data){
+  		console.log("data",data);
     	return new Promise(resolve =>{
       		this.http.put(this.url + data.id, data)
       		.subscribe(res => {

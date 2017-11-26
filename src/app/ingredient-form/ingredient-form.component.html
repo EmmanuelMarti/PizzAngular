@@ -1,0 +1,26 @@
+<form (ngSubmit)="FormIngredient()" #heroForm="ngForm">
+		<ul>
+
+			<li>
+			    <label >Nom de l'ingrédient</label>
+			    <input type="text" [(ngModel)]="dataIngredient.name" name="name">
+			</li>
+
+			<li>
+			    <label >Poids de l'ingrédient</label>
+			    <input type="text"  [(ngModel)]="dataIngredient.weight" name="description">
+			</li>
+
+			<li>
+			    <label >Prix de l'ingrédient</label>
+			    <input type="text"  [(ngModel)]="dataIngredient.price" name="price">
+			</li>
+			<br />
+			
+
+			<br />
+			<button type="submit" block>Enregistrer</button>
+			<a routerLink="">Retour sur la page d'accueil</a>
+
+		</ul>
+	</form>

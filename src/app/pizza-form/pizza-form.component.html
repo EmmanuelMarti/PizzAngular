@@ -1,0 +1,35 @@
+<p>
+  pizza-form works!
+</p>
+
+<form (ngSubmit)="logForm()" #heroForm="ngForm">
+		<ul>
+
+			<li>
+			    <label >Nom de la pizza</label>
+			    <input type="text" [(ngModel)]="pizzaForm.name" name="name">
+			</li>
+
+			<li>
+			    <label >Description de la pizza</label>
+			    <input type="text"  [(ngModel)]="pizzaForm.description" name="description">
+			</li>
+
+			<li>
+			    <label >Prix de la pizza</label>
+			    <input type="text"  [(ngModel)]="pizzaForm.price" name="price">
+			</li>
+			<br />
+			<h3>Ingrédients de la pizza</h3>
+			<br />
+			<span *ngFor="let ingredient of dataIngredient">
+    			<label>{{ingredient.name}}</label>
+    			<input type="checkbox" [(ngModel)]="ingredient.check" name="{{ingredient.name}}">
+  			</span>
+
+			<br />
+			<button type="submit" block>Enregistrer</button>
+			<a routerLink="">Retour sur la page d'accueil</a>
+
+		</ul>
+	</form>

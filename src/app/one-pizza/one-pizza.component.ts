@@ -11,6 +11,7 @@ export class OnePizzaComponent implements OnInit {
   data: any;
   @Input() pizza;
   @Output() onSelected = new EventEmitter<boolean>();
+  @Output() onDeleted = new EventEmitter<boolean>();
   constructor(public pizzaService:PizzaServiceService) { }
 
   ngOnInit() {
@@ -22,10 +23,12 @@ export class OnePizzaComponent implements OnInit {
   			status: true
   		};
   		this.onSelected.emit(this.data);
-  	}
+  }
 
-/*    DeleteContact(){
-      console.log(this.pizza);
-      this.pizzaService.deletePizza(this.pizza._id);
-    }*/
+  DeletePizza(){
+    console.log(this.pizza);
+    this.onDeleted.emit(this.pizza);
+    this.pizzaService.deletePizza(this.pizza._id);
+    
+  }
 }

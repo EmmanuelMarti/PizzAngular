@@ -3,5 +3,9 @@
 </p>
 
 <ul>
-	<app-one-pizza *ngFor="let pizza of pizzaListe" [pizza]="pizza" (onSelected)="onSelectedContact($event)"></app-one-pizza>
+	<app-one-pizza *ngFor="let pizza of pizzaListe" [pizza]="pizza" (onSelected)="onSelectedContact($event)"   
+	(onDeleted)="onDeletedPizza($event)"></app-one-pizza>
 </ul>
+<a routerLink="/ingredients">Liste des ingrédients</a>
+<br />
+<a routerLink="/pizza/form/0">Ajouter une pizza</a>

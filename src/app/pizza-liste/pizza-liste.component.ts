@@ -12,6 +12,9 @@ export class PizzaListeComponent implements OnInit {
   pizzaListe:any;
   pizza :any;
   status:any;
+  pizzaDelete:any;
+  //private socket = io("https:\/\/pizzatp-manumarti.c9users.io");
+
   constructor( public pizzaService : PizzaServiceService) {
 
    }
@@ -27,6 +30,15 @@ export class PizzaListeComponent implements OnInit {
   		console.log(event);
   		this.pizza = event.pizza;
   		this.status = event.status;
-  	}
+  }
+
+  onDeletedPizza(event){
+    console.log("pizzaDelete",event);
+    this.pizzaDelete = event;
+
+    let res = this.pizzaListe.find( x => { return x._id == this.pizzaDelete._id });
+    console.log(res);
+    this.pizzaListe.splice(this.pizzaListe.indexOf(res),1);
+  }
 
 }
