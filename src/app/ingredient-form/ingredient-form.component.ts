@@ -10,6 +10,7 @@ import { Ingredient } from '../Models/Ingredient';
 })
 export class IngredientFormComponent implements OnInit {
 
+  msg: any;
   dataIngredient :any;
   constructor( private route: ActivatedRoute, private router: Router, 
    public ingredientService: IngredientService ) { 
@@ -33,13 +34,17 @@ export class IngredientFormComponent implements OnInit {
     if(this.dataIngredient.id == 0){
       console.log("Je passe dans le post");
     	console.log("POST");
-    	this.ingredientService.post(this.dataIngredient);
+    	this.ingredientService.post(this.dataIngredient).then(data=>{
+        this.msg="Votre ingrédient a bien été créé";
+      });
 
     }else if(this.dataIngredient._id){
     	this.dataIngredient.id = this.dataIngredient._id;
     	console.log("UPDATE");
     	console.log(this.dataIngredient);
-    	this.ingredientService.update(this.dataIngredient);
+    	this.ingredientService.update(this.dataIngredient).then(data=>{
+        this.msg = "Votre ingrédient a bien été modifié";
+      });
     }
     
   }

@@ -1,7 +1,9 @@
 <p>
   pizza-form works!
 </p>
-
+<h1 *ngIf="msg">
+	{{msg}}
+</h1>
 <form (ngSubmit)="logForm()" #heroForm="ngForm">
 		<ul>
 

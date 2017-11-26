@@ -15,6 +15,7 @@ export class PizzaFormComponent implements OnInit {
   data: any;
   pizzaForm; any;
   dataIngredient :any;
+  msg : any;
   constructor(private route: ActivatedRoute, private router: Router, 
   	public pizzaService: PizzaServiceService, public ingredientService: IngredientService) {
   	this.pizzaForm = new Pizza();
@@ -67,7 +68,9 @@ export class PizzaFormComponent implements OnInit {
     	let dateConcat = day + "/" + month + "/" + year;
     	this.pizzaForm.dateCreated = dateConcat;
     	console.log("POST");
-    	this.pizzaService.post(this.pizzaForm);
+    	this.pizzaService.post(this.pizzaForm).then( data =>{
+        this.msg = "Votre pizza a bien été créée";
+      });
 
     }else if(this.pizzaForm._id){
     	let date = new Date();
@@ -79,7 +82,9 @@ export class PizzaFormComponent implements OnInit {
     	this.pizzaForm.id = this.pizzaForm._id;
     	console.log("UPDATE");
     	console.log(this.pizzaForm);
-    	this.pizzaService.update(this.pizzaForm);
+    	this.pizzaService.update(this.pizzaForm).then( data=>{
+        this.msg = "Votre pizza a bien été modifiée";
+      });
     }
     
   }

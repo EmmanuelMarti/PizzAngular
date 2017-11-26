@@ -3,7 +3,8 @@
 </p>
 
 <ul>
-	<app-one-ingredient *ngFor="let ingredient of dataIngredient" [ingredient]="ingredient" (onSelected)="onSelectedContact($event)">
+	<app-one-ingredient *ngFor="let ingredient of dataIngredient" [ingredient]="ingredient" (onSelected)="onSelectedContact($event)"
+	(onDeleted)="onDeletedIngredient($event)">
 	</app-one-ingredient>
 </ul>
 
